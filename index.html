@@ -10,6 +10,20 @@
 <ul>
 	<li ng-repeat="person in people"> {{person.name}} </li>
 </ul>
+
+
+	<table>
+		<tr>
+			<td>Name</td>
+			<td>city</td>
+		</tr>
+		<tr ng-repeat="person in people">
+			
+			<td>{{person.name}}</td>
+			<td>{{person.city}}</td>
+		</tr>
+
+	</table>
 <script src="angular.min.js"></script>
 </body>
 </html>
