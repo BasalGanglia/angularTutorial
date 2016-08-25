@@ -1,31 +1,40 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="customersApp">
 <head>
 	<title>Iterating ..sdf</title>
 	<link href="Styles/styles.css" rel="stylesheet" type="text/css"/>
 </head>
 
-<body ng-init="customers=[{joined: '2000-12-02', name:'zharles', city:'sapporo', orderTotal:'10'},{joined: '2000-12-02', name:'jack', city:'sapporo', orderTotal:'11'},{joined: '2000-12-02', name:'marjaliisa', city:'sapporo', orderTotal:15}]">
+<bod ng-controller="CustomersController">
 <h2>Customers</h2>
-	Filter: <input type="text" ng-model="customFilter.name"/>
+<h3>{{customers[0].name}}</h3>
+	Filter: <input type="text"/>
 	<br /><br />
 	<table>
 		
 		<tr>
-			<th ng-click="sortyBy='name';reverse=!reverse">Name</th>
-			<th  ng-click="sortyBy='city';reverse=!reverse">City</th>
-			<th ng-click="sortyBy='order';reverse=!reverse">Order Total</th>
-			<th ng-click="sortyBy='joined';reverse=!reverse">Joined</th>
+			<th ng-click="doSort('name')">Name</th>
+			<th  ng-click="doSort('city')">City</th>
+			<th ng-click="doSort('orderTotal')">Order Total</th>
+			<th ng-click="doSort('joined')">Joined</th>
 		</tr>
-		<tr ng-repeat="cust in customers | filter:customFilter | orderBy:sortyBy:reverse">
+		<tr ng-repeat="cust in customers">
 			<td>{{cust.name }}</td>
 			<td>{{cust.city}}</td>
 			<td>{{cust.orderTotal | currency}}</td>
-			<td>{{cust.joined | date}}</td>
+			<td>{{cust.joined | date}}</td>		
+			 </tr>
 	</table>
+	
 
+	<br />
+	<span>Total customers: {{ customers.length}} </span>
 	<script src="angular.min.js"></script>
-
+	<script>
+		
+		var app = angular.module('customersApp', []);
+	</script>
+	<script src="app/customersController.js"> </script>
 	
 </body>
 </html>
