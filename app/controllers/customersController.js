@@ -45,6 +45,12 @@ app.controller('CustomersController', function($scope) {
 // 		};
 // 	});
 // }());
+
+(function () {
+	var app = angular.module('customersAppfgdh', []); 
+
+}());
+
 (function() {
     
     var CustomersController = function ($scope) {
