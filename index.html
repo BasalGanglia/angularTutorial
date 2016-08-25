@@ -1,29 +1,31 @@
 <!doctype html>
-
 <html ng-app>
-	<head>
-		<title>Iterating</title>
-	</head>
-	<body ng-init="people=
-[{name:'jack', city:'dick'},{name:'bonzo', city:'cahah'},{name:'siegfied', city:'zen'}]">
+<head>
+	<title>Iterating ..sdf</title>
+	<link href="Styles/styles.css" rel="stylesheet" type="text/css"/>
+</head>
 
-<ul>
-	<li ng-repeat="person in people"> {{person.name}} </li>
-</ul>
-
-
+<body ng-init="customers=[{joined: '2000-12-02', name:'zharles', city:'sapporo', orderTotal:'10'},{joined: '2000-12-02', name:'jack', city:'sapporo', orderTotal:'11'},{joined: '2000-12-02', name:'marjaliisa', city:'sapporo', orderTotal:15}]">
+<h2>Customers</h2>
+	Filter: <input type="text" ng-model="customFilter.name"/>
+	<br /><br />
 	<table>
+		
 		<tr>
-			<td>Name</td>
-			<td>city</td>
+			<th>Name</th>
+			<th>City</th>
+			<th>Order Total</th>
+			<th>Joined</th>
 		</tr>
-		<tr ng-repeat="person in people">
-			
-			<td>{{person.name}}</td>
-			<td>{{person.city}}</td>
-		</tr>
-
+		<tr ng-repeat="cust in customers | filter:customFilter | orderBy:'name'">
+			<td>{{cust.name }}</td>
+			<td>{{cust.city}}</td>
+			<td>{{cust.orderTotal | currency}}</td>
+			<td>{{cust.joined | date}}</td>
 	</table>
-<script src="angular.min.js"></script>
+
+	<script src="angular.min.js"></script>
+
+	
 </body>
 </html>
