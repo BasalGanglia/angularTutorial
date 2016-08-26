@@ -8,10 +8,9 @@
                 controller: 'CustomersController',
                 templateUrl: 'app/views/customers.html'
             })
-            .when('orders/:customerId', {
+            .when('/orders/:customerId', {
             	controller: 'OrdersController',
-            	templateUrl: 'app/view/customers.html'
-
+            	templateUrl: 'app/views/orders.html'
             })
 
             // .when('/orders/:customerId', {
