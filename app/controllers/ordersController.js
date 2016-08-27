@@ -5,7 +5,14 @@
 	$scope.customer = null;
 	
 	function init() {
-	    $scope.customer = customersFactory.getCustomer(customerId);
+	    customersFactory.getCustomers(customerId)
+		.success(function(customer){
+		    $scope.customer = customer;
+		})
+		.error(function(data,status,headers,config){
+		    //handle error
+		});
+
 	}
 	
 	init();
